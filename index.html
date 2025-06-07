@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>czez</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .search-container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            text-align: center;
+        }
+
+        .logo {
+            font-size: 3rem;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .search-form {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 50px;
+            font-size: 16px;
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            background: white;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .search-button {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .search-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(45deg, #ff5252, #d63031);
+        }
+
+        .loading {
+            display: none;
+            color: white;
+            margin-top: 10px;
+        }
+
+        .loading.show {
+            display: block;
+        }
+
+        .spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+            margin-right: 10px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Výsledky vyhledávání */
+        .results-container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            display: none;
+            text-align: left;
+        }
+
+        .results-container.show {
+            display: block;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .results-header {
+            color: #333;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eee;
+        }
+
+        .search-result {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease;
+        }
+
+        .search-result:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .result-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 8px;
+        }
+
+        .result-url {
+            color: #27ae60;
+            font-size: 14px;
+            margin-bottom: 10px;
+            text-decoration: none;
+        }
+
+        .result-description {
+            color: #555;
+            line-height: 1.5;
+            font-size: 14px;
+        }
+
+        .no-results {
+            text-align: center;
+            color: #666;
+            font-style: italic;
+            padding: 40px;
+        }
+
+        .stats {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        /* Responzivní design */
+        @media (max-width: 768px) {
+            .search-form {
+                flex-direction: column;
+            }
+            
+            .search-button {
+                margin-top: 10px;
+            }
+            
+            .logo {
+                font-size: 2rem;
+            }
+            
+            .search-container {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="search-container">
+        <div class="logo">🔍 Czez</div>
+        
+        <form class="search-form" id="searchForm">
+            <input 
+                type="text" 
+                class="search-input" 
+                id="searchInput" 
+                placeholder="Zadejte hledaný výraz..." 
+                required
+                autocomplete="off"
+            >
+            <button type="submit" class="search-button">
+                Vyhledat
+            </button>
+        </form>
+        
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            Vyhledávám...
+        </div>
+    </div>
+
+    <div class="results-container" id="resultsContainer">
+        <div class="results-header">
+            <h2>Výsledky vyhledávání</h2>
+            <div class="stats" id="searchStats"></div>
+        </div>
+        <div id="resultsContent">
+            <!-- Zde se zobrazí výsledky -->
+        </div>
+    </div>
+
+    <!-- Načtení databáze z externího souboru -->
+    <script src="search-database.js"></script>
+    <script>
+        // Databáze se načítá z externího souboru search-database.js
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchForm = document.getElementById('searchForm');
+            const searchInput = document.getElementById('searchInput');
+            const loading = document.getElementById('loading');
+            const resultsContainer = document.getElementById('resultsContainer');
+            const resultsContent = document.getElementById('resultsContent');
+            const searchStats = document.getElementById('searchStats');
+
+            // Funkce pro vyhledávání
+            function performSearch(query) {
+                if (!query.trim()) {
+                    alert('Prosím zadejte hledaný výraz');
+                    return;
+                }
+
+                // Zobrazit loading animaci
+                loading.classList.add('show');
+                resultsContainer.classList.remove('show');
+
+                // Simulace načítání pro lepší UX
+                setTimeout(() => {
+                    const results = searchInDatabase(query.trim().toLowerCase());
+                    displayResults(results, query);
+                    
+                    // Skrýt loading a zobrazit výsledky
+                    loading.classList.remove('show');
+                    resultsContainer.classList.add('show');
+                }, 500);
+            }
+
+            // Funkce pro vyhledávání v databázi
+            function searchInDatabase(query) {
+                const results = [];
+                
+                searchDatabase.forEach((item, index) => {
+                    let score = 0;
+                    const queryWords = query.split(' ');
+                    
+                    // Kontrola názvu (nejvyšší váha)
+                    if (item.title.toLowerCase().includes(query)) {
+                        score += 10;
+                    }
+                    
+                    // Kontrola popisu
+                    if (item.description.toLowerCase().includes(query)) {
+                        score += 5;
+                    }
+                    
+                    // Kontrola klíčových slov
+                    item.keywords.forEach(keyword => {
+                        if (keyword.toLowerCase().includes(query)) {
+                            score += 7;
+                        }
+                    });
+                    
+                    // Kontrola jednotlivých slov
+                    queryWords.forEach(word => {
+                        if (word.length > 2) { // Ignorovat krátká slova
+                            if (item.title.toLowerCase().includes(word)) score += 3;
+                            if (item.description.toLowerCase().includes(word)) score += 2;
+                            item.keywords.forEach(keyword => {
+                                if (keyword.toLowerCase().includes(word)) score += 2;
+                            });
+                        }
+                    });
+                    
+                    if (score > 0) {
+                        results.push({
+                            ...item,
+                            score: score,
+                            index: index
+                        });
+                    }
+                });
+                
+                // Seřadit podle skóre (nejvyšší skóre první)
+                return results.sort((a, b) => b.score - a.score);
+            }
+
+            // Funkce pro zobrazení výsledků
+            function displayResults(results, query) {
+                if (results.length === 0) {
+                    searchStats.textContent = `Nenalezeny žádné výsledky pro "${query}"`;
+                    resultsContent.innerHTML = `
+                        <div class="no-results">
+                            <h3>😔 Žádné výsledky</h3>
+                            <p>Zkuste:</p>
+                            <ul style="list-style: none; padding: 0; margin-top: 15px;">
+                                <li>• Používat obecnější výrazy</li>
+                                <li>• Kontrolovat překlepy</li>
+                                <li>• Vyhledat "javascript", "html", "css", "python"</li>
+                            </ul>
+                        </div>
+                    `;
+                    return;
+                }
+
+                searchStats.textContent = `Nalezeno ${results.length} výsledků pro "${query}" (${(Math.random() * 0.5 + 0.1).toFixed(2)} sekund)`;
+                
+                resultsContent.innerHTML = results.map(result => `
+                    <div class="search-result">
+                        <div class="result-title">${highlightText(result.title, query)}</div>
+                        <a href="${result.url}" class="result-url" target="_blank">${result.url}</a>
+                        <div class="result-description">${highlightText(result.description, query)}</div>
+                    </div>
+                `).join('');
+            }
+
+            // Funkce pro zvýraznění hledaného textu
+            function highlightText(text, query) {
+                const regex = new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+                return text.replace(regex, '<mark style="background: #ffeb3b; padding: 2px 4px; border-radius: 3px;">$1</mark>');
+            }
+
+            // Obsluha odeslání formuláře
+            searchForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const query = searchInput.value;
+                performSearch(query);
+            });
+
+            // Automatické zaměření na vstupní pole
+            searchInput.focus();
+
+            // Hover efekty
+            searchInput.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.02)';
+            });
+
+            searchInput.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1)';
+            });
+
+            // Efekt psaní
+            searchInput.addEventListener('input', function() {
+                if (this.value.length > 0) {
+                    this.style.borderLeft = '4px solid #ff6b6b';
+                } else {
+                    this.style.borderLeft = 'none';
+                }
+            });
+
+            // Live search (volitelné - vyhledává při psaní)
+            let searchTimeout;
+            searchInput.addEventListener('input', function() {
+                clearTimeout(searchTimeout);
+                const query = this.value.trim();
+                
+                if (query.length > 2) {
+                    searchTimeout = setTimeout(() => {
+                        performSearch(query);
+                    }, 800); // Počká 800ms po posledním stisknutí klávesy
+                } else if (query.length === 0) {
+                    resultsContainer.classList.remove('show');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
