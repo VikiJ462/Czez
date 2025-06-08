@@ -115,6 +115,12 @@ const searchDatabase = [
         description: "Český zpravodajský portál s čerstvými informacemi ze všech oblastí života.",
         keywords: ["novinky", "české", "zprávy", "aktuality", "informace"]
     },
+    {
+        title: "Mahalo.cz",
+        url: "https://www.mahalo.cz",
+        description: "Česká stránka o různých místech.",
+        keywords: ["české", "mahalo", "cestování", "místa", "starověký"]
+    },
 
     // Technologie a IT
     {
@@ -166,6 +172,36 @@ const searchDatabase = [
         url: "https://discord.com",
         description: "Komunikační platforma původně pro hráče, nyní používaná komunitami všeho druhu.",
         keywords: ["discord", "chat", "komunity", "hry", "voice", "servery"]
+    },
+    {
+        title: "Internet Archive",
+        url: "https://archive.org",
+        description: "Stránka pro stáhování různých věcí.",
+        keywords: ["internet archive", "archive", "stahování", "aplikace", "programy", "iso", "operační systém"]
+    },
+    {
+        title: "Slunečnice.cz",
+        url: "https://www.slunecnice.cz",
+        description: "Stránka pro stáhování různých programů.",
+        keywords: ["slunečnice", "slunecnice", "slunečnice.cz", "slunecnice.cz", "stahování", "aplikace", "programy"]
+    },
+    {
+        title: "Steam - stahování her",
+        url: "https://store.steampowered.com",
+        description: "Stránka pro stáhování různých her.",
+        keywords: ["steam", "hry", "stahování", "aplikace", "programy"]
+    },
+    {
+        title: "Epic Games - stahování her",
+        url: "https://store.epicgames.com",
+        description: "Stránka pro stáhování různých her.",
+        keywords: ["epic games", "hry", "stahování", "aplikace", "programy"]
+    },
+    {
+        title: "Minecraft Launcher stáhnutí",
+        url: "https://www.minecraft.net/en-us/download",
+        description: "Stáhni si Minecraft Launcher a užij si hraní.",
+        keywords: ["Minecraft", "Minecraft Launcher", "stáhnout Minecraft", "Minecraft stáhnutí"]
     },
 
     // Práce a produktivita
@@ -258,6 +294,12 @@ const searchDatabase = [
         url: "https://www.airbnb.com",
         description: "Platforma pro rezervaci soukromých ubytování, domů a zážitků od místních hostitelů.",
         keywords: ["airbnb", "ubytování", "domy", "apartmány", "cestování", "hostitelé"]
+    },
+    {
+        title: "Mapy.com - České mapy a navigace",
+        url: "https://www.mapy.com",
+        description: "České mapy a navigace",
+        keywords: ["mapy", "mapy.cz", "mapy.com", "navigace", "trasy", "cestování"]
     },
 
     // Počasí a praktické
