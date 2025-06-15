@@ -63,7 +63,7 @@
             transform: translateY(-2px);
         }
 
-        .search-button {
+        .search-button, .translator-button {
             padding: 15px 30px;
             border: none;
             border-radius: 50px;
@@ -76,10 +76,19 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
 
-        .search-button:hover {
+        .search-button:hover, .translator-button:hover {
             transform: translateY(-3px);
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
             background: linear-gradient(45deg, #ff5252, #d63031);
+        }
+
+        .translator-button {
+            background: linear-gradient(45deg, #28a745, #218838); /* Zelenější barva pro překladač */
+            margin-top: 15px; /* Mezera mezi vyhledáváním a překladačem */
+        }
+
+        .translator-button:hover {
+            background: linear-gradient(45deg, #218838, #1e7e34);
         }
 
         .loading {
@@ -199,7 +208,7 @@
                 flex-direction: column;
             }
             
-            .search-button {
+            .search-button, .translator-button {
                 margin-top: 10px;
             }
             
@@ -230,6 +239,10 @@
                 Vyhledat
             </button>
         </form>
+
+        <button type="button" class="translator-button" id="translatorButton">
+            Překladač
+        </button>
         
         <div class="loading" id="loading">
             <div class="spinner"></div>
@@ -243,11 +256,9 @@
             <div class="stats" id="searchStats"></div>
         </div>
         <div id="resultsContent">
-            <!-- Zde se zobrazí výsledky -->
-        </div>
+            </div>
     </div>
 
-    <!-- Načtení databáze z externího souboru -->
     <script src="search-database.js"></script>
     <script>
         // Databáze se načítá z externího souboru search-database.js
@@ -259,6 +270,7 @@
             const resultsContainer = document.getElementById('resultsContainer');
             const resultsContent = document.getElementById('resultsContent');
             const searchStats = document.getElementById('searchStats');
+            const translatorButton = document.getElementById('translatorButton'); // Nové tlačítko
 
             // Funkce pro vyhledávání
             function performSearch(query) {
@@ -371,6 +383,11 @@
                 e.preventDefault();
                 const query = searchInput.value;
                 performSearch(query);
+            });
+
+            // Obsluha kliknutí na tlačítko "Překladač"
+            translatorButton.addEventListener('click', function() {
+                window.location.href = 'https://vikij462.github.io/Mega_Prekladac/';
             });
 
             // Automatické zaměření na vstupní pole
