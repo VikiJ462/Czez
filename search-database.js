@@ -37,6 +37,18 @@ const searchDatabase = [
         description: "Největší video platforma světa. Sledujte, nahrávajte a sdílejte videa na jakékoli téma.",
         keywords: ["youtube", "videa", "google", "sledování", "nahrávání", "kanály"]
     },
+    {
+        title: "Pinterest - inspirace a nápady",
+        url: "https://www.pinterest.com",
+        description: "Sociální síť plná inspirace pro vaření, bydlení, módu, DIY projekty a životní styl.",
+        keywords: ["pinterest", "inspirace", "nápady", "diy", "vaření", "bydlení"]
+    },
+    {
+        title: "Reddit - diskuzní fóra",
+        url: "https://www.reddit.com",
+        description: "Platforma s tisíci diskuzních fór (subreddity) na jakékoli téma co vás napadne.",
+        keywords: ["reddit", "diskuze", "fóra", "subreddit", "komunita", "témata"]
+    },
 
     // Vyhledávače
     {
@@ -64,7 +76,7 @@ const searchDatabase = [
         keywords: ["duckduckgo", "soukromí", "anonymní", "vyhledávač", "bezpečnost"]
     },
 
-    // E-commerce
+    // E-commerce & Nakupování
     {
         title: "Amazon - online obchod",
         url: "https://www.amazon.com",
@@ -81,13 +93,25 @@ const searchDatabase = [
         title: "Alza.cz - česká elektronika",
         url: "https://www.alza.cz",
         description: "Největší český e-shop s elektronikou, počítači, mobily a dalším zbožím s rychlou dodávkou.",
-        keywords: ["alza", "elektronika", "počítače", "mobily", "český", "e-shop"]
+        keywords: ["alza", "elektronika", "počítače", "mobily", "český", "e-shop", "nakupování"]
     },
     {
         title: "Mall.cz - český obchod",
         url: "https://www.mall.cz",
         description: "Velký český online obchod s širokou nabídkou zboží od elektroniky po domácnost.",
-        keywords: ["mall", "český", "obchod", "elektronika", "domácnost", "móda"]
+        keywords: ["mall", "český", "obchod", "elektronika", "domácnost", "móda", "nakupování"]
+    },
+    {
+        title: "Notino.cz - parfémy a kosmetika",
+        url: "https://www.notino.cz",
+        description: "E-shop s širokým výběrem parfémů, kosmetiky a produktů pro krásu.",
+        keywords: ["notino", "parfémy", "kosmetika", "krása", "e-shop", "nakupování"]
+    },
+    {
+        title: "Rohlík.cz - online supermarket",
+        url: "https://www.rohlik.cz",
+        description: "Online supermarket s doručením potravin a drogerie až domů.",
+        keywords: ["rohlík", "potraviny", "supermarket", "online nákupy", "doručení", "jídlo"]
     },
 
     // Zpravodajství
@@ -116,6 +140,12 @@ const searchDatabase = [
         keywords: ["novinky", "české", "zprávy", "aktuality", "informace"]
     },
     {
+        title: "ČT24 - Zpravodajství ČT",
+        url: "https://ct24.ceskatelevize.cz",
+        description: "Nonstop zpravodajský kanál České televize s aktuálními informacemi z domova i světa.",
+        keywords: ["čt24", "česká televize", "zprávy", "aktuality", "online", "politika"]
+    },
+    {
         title: "Mahalo.cz",
         url: "https://www.mahalo.cz",
         description: "Česká stránka o různých místech.",
@@ -136,19 +166,25 @@ const searchDatabase = [
         keywords: ["stackoverflow", "programování", "otázky", "odpovědi", "kód", "developers"]
     },
     {
-        title: "Reddit - diskuzní fóra",
-        url: "https://www.reddit.com",
-        description: "Platforma s tisíci diskuzních fór (subreddity) na jakékoli téma co vás napadne.",
-        keywords: ["reddit", "diskuze", "fóra", "subreddit", "komunita", "témata"]
-    },
-    {
         title: "Wikipedia - encyklopedie",
         url: "https://www.wikipedia.org",
         description: "Největší online encyklopedie vytvářená dobrovolníky s články ve všech jazycích světa.",
         keywords: ["wikipedia", "encyklopedie", "znalosti", "články", "vzdělání", "informace"]
     },
+    {
+        title: "Lupa.cz - IT zpravodajství",
+        url: "https://www.lupa.cz",
+        description: "Přední český server o IT, internetu, technologiích a digitálním světě.",
+        keywords: ["lupa", "it", "technologie", "internet", "digitální", "czech"]
+    },
+    {
+        title: "Root.cz - server o IT",
+        url: "https://www.root.cz",
+        description: "Český server zaměřený na Linux, open source, programování a IT technologie.",
+        keywords: ["root", "linux", "open source", "programování", "it", "czech"]
+    },
 
-    // Zábava a média
+    // Zábava a média (Filmy, Hudba, Hry)
     {
         title: "Netflix - streaming videí",
         url: "https://www.netflix.com",
@@ -182,38 +218,50 @@ const searchDatabase = [
     {
         title: "Slunečnice.cz",
         url: "https://www.slunecnice.cz",
-        description: "Stránka pro stáhování různých programů.",
-        keywords: ["slunečnice", "slunecnice", "slunečnice.cz", "slunecnice.cz", "stahování", "aplikace", "programy"]
+        description: "Stránka pro stáhování různých programů a her pro Windows.",
+        keywords: ["slunečnice", "slunecnice", "slunečnice.cz", "slunecnice.cz", "stahování", "aplikace", "programy", "software"]
     },
     {
-        title: "Steam - stahování her",
+        title: "Steam - digitální obchod s hrami",
         url: "https://store.steampowered.com",
-        description: "Stránka pro stáhování různých her.",
-        keywords: ["steam", "hry", "stahování", "aplikace", "programy"]
+        description: "Největší platforma pro digitální distribuci videoher.",
+        keywords: ["steam", "hry", "stahování", "aplikace", "programy", "gaming", "pc hry"]
     },
     {
-        title: "Epic Games - stahování her",
+        title: "Epic Games Store - hry zdarma a exkluzivity",
         url: "https://store.epicgames.com",
-        description: "Stránka pro stáhování různých her.",
-        keywords: ["epic games", "hry", "stahování", "aplikace", "programy"]
+        description: "Obchod s digitálními hrami, známý pro týdenní rozdávání her zdarma.",
+        keywords: ["epic games", "hry", "stahování", "aplikace", "programy", "zdarma hry"]
     },
     {
         title: "Minecraft Launcher stáhnutí",
         url: "https://www.minecraft.net/en-us/download",
-        description: "Stáhni si Minecraft Launcher a užij si hraní.",
-        keywords: ["Minecraft", "Minecraft Launcher", "stáhnout Minecraft", "Minecraft stáhnutí"]
+        description: "Oficiální stránka pro stažení Minecraft Launcheru a začátek hraní.",
+        keywords: ["Minecraft", "Minecraft Launcher", "stáhnout Minecraft", "Minecraft stáhnutí", "hry"]
     },
     {
         title: "Prehraj.to - online filmy a seriály",
         url: "https://www.prehraj.to",
         description: "Sledujte filmy, seriály a videa online. Velký archiv českých i zahraničních titulů.",
-        keywords: ["prehraj.to", "filmy", "seriály", "online", "stream", "videa", "české filmy"]
+        keywords: ["prehraj.to", "filmy", "seriály", "online", "stream", "videa", "české filmy", "sledování"]
     },
     {
         title: "Kukaj.to - filmy a seriály online",
         url: "https://kukaj.fi",
         description: "Kukaj.to nabízí širokou škálu filmů a seriálů ke sledování online zdarma.",
-        keywords: ["kukaj.fi", "filmy", "seriály", "online", "stream", "zdarma"]
+        keywords: ["kukaj.fi", "filmy", "seriály", "online", "stream", "zdarma", "sledování"]
+    },
+    {
+        title: "CSFD.cz - Česko-Slovenská filmová databáze",
+        url: "https://www.csfd.cz",
+        description: "Databáze filmů a seriálů s hodnocením, recenzemi a informacemi o tvůrcích.",
+        keywords: ["csfd", "filmy", "seriály", "databáze", "recenze", "hodnocení", "kino", "televize"]
+    },
+    {
+        title: "IMDb - Internet Movie Database",
+        url: "https://www.imdb.com",
+        description: "Největší světová databáze filmů, seriálů a celebrit.",
+        keywords: ["imdb", "filmy", "seriály", "databáze", "herci", "režiséři", "hodnocení"]
     },
 
     // Práce a produktivita
@@ -221,19 +269,13 @@ const searchDatabase = [
         title: "Microsoft Office Online",
         url: "https://office.com",
         description: "Online verze Microsoft Office nástrojů - Word, Excel, PowerPoint a další pro práci v cloudu.",
-        keywords: ["office", "microsoft", "word", "excel", "powerpoint", "online"]
+        keywords: ["office", "microsoft", "word", "excel", "powerpoint", "online", "produktivita"]
     },
     {
         title: "Google Workspace",
         url: "https://workspace.google.com",
         description: "Sada Google nástrojů pro práci - Gmail, Drive, Docs, Sheets a další pro týmovou spolupráci.",
-        keywords: ["google", "workspace", "gmail", "drive", "docs", "sheets"]
-    },
-    {
-        title: "Slack - týmová komunikace",
-        url: "https://slack.com",
-        description: "Nástroj pro komunikaci v týmech s kanály, přímými zprávami a integrací s dalšími aplikacemi.",
-        keywords: ["slack", "týmy", "komunikace", "kanály", "chat", "business"]
+        keywords: ["google", "workspace", "gmail", "drive", "docs", "sheets", "produktivita", "cloud"]
     },
     {
         title: "Zoom - videokonference",
@@ -241,11 +283,11 @@ const searchDatabase = [
         description: "Platforma pro videokonference, online schůzky a vzdálené prezentace pro firmy i školy.",
         keywords: ["zoom", "videokonference", "schůzky", "online", "prezentace", "vzdálená práce"]
     },
-        {
-        title: "Teams - videokonference",
-        url: "https://www.microsoft.com/cs-cz/microsoft-teams/log-in",
-        description: "Platforma pro videokonference, online schůzky a vzdálené prezentace pro firmy i školy.",
-        keywords: ["teams", "videokonference", "schůzky", "online", "prezentace", "vzdálená práce", "microsoft teams"]
+    {
+        title: "Trello - nástroj pro řízení projektů",
+        url: "https://trello.com",
+        description: "Vizualizujte své projekty a organizujte úkoly s týmem pomocí Trello kanban desek.",
+        keywords: ["trello", "projekty", "řízení úkolů", "kanban", "organizace", "produktivita"]
     },
 
     // Vzdělání
@@ -253,22 +295,22 @@ const searchDatabase = [
         title: "Khan Academy - online vzdělávání",
         url: "https://www.khanacademy.org",
         description: "Bezplatná online vzdělávací platforma s kurzy matematiky, věd, programování a dalších předmětů.",
-        keywords: ["khan academy", "vzdělávání", "kurzy", "matematika", "věda", "zdarma"]
+        keywords: ["khan academy", "vzdělávání", "kurzy", "matematika", "věda", "zdarma", "škola"]
     },
     {
         title: "Coursera - online kurzy",
         url: "https://www.coursera.org",
         description: "Platforma s online kurzy od univerzit a firem po celém světě, včetně certifikátů a diplomů.",
-        keywords: ["coursera", "kurzy", "univerzity", "certifikáty", "vzdělávání", "online"]
+        keywords: ["coursera", "kurzy", "univerzity", "certifikáty", "vzdělávání", "online", "škola"]
     },
     {
         title: "Duolingo - jazyky zábavně",
         url: "https://www.duolingo.com",
         description: "Aplikace pro výuku cizích jazyků formou her a interaktivních lekcí zdarma.",
-        keywords: ["duolingo", "jazyky", "výuka", "angličtina", "němčina", "zdarma"]
+        keywords: ["duolingo", "jazyky", "výuka", "angličtina", "němčina", "zdarma", "učení"]
     },
 
-    // České stránky
+    // České stránky (Obecné)
     {
         title: "Česká televize - iVysílání",
         url: "https://www.ceskatelevize.cz",
@@ -281,25 +323,13 @@ const searchDatabase = [
         description: "Sledujte pořady TV Prima online, seriály, filmy a zprávy kdykoliv zdarma.",
         keywords: ["prima", "televize", "online", "seriály", "filmy", "zprávy"]
     },
-    {
-        title: "Lupa.cz - IT zpravodajství",
-        url: "https://www.lupa.cz",
-        description: "Přední český server o IT, internetu, technologiích a digitálním světě.",
-        keywords: ["lupa", "it", "technologie", "internet", "digitální", "czech"]
-    },
-    {
-        title: "Root.cz - server o IT",
-        url: "https://www.root.cz",
-        description: "Český server zaměřený na Linux, open source, programování a IT technologie.",
-        keywords: ["root", "linux", "open source", "programování", "it", "czech"]
-    },
 
     // Mapy a cestování
     {
         title: "Google Maps - mapy a navigace",
         url: "https://maps.google.com",
         description: "Nejpřesnější mapy světa s navigací, informacemi o místech a plánováním tras.",
-        keywords: ["google maps", "mapy", "navigace", "trasy", "místnosti", "doprava"]
+        keywords: ["google maps", "mapy", "navigace", "trasy", "místnosti", "doprava", "cestování"]
     },
     {
         title: "Booking.com - rezervace ubytování",
@@ -316,14 +346,20 @@ const searchDatabase = [
     {
         title: "Mapy.com - České mapy a navigace",
         url: "https://www.mapy.com",
-        description: "České mapy a navigace",
-        keywords: ["mapy", "mapy.cz", "mapy.com", "navigace", "trasy", "cestování"]
+        description: "České mapy a navigace s plánováním tras pro auto, pěší i cyklisty.",
+        keywords: ["mapy", "mapy.cz", "mapy.com", "navigace", "trasy", "cestování", "české mapy"]
     },
     {
         title: "10 památek v Římě, které si nesmíte nechat ujít - RadyNaCestu.cz",
         url: "https://www.radynacestu.cz/magazin/10-pamatek-v-rime-ktere-si-nesmite-nechat-ujit",
         description: "Článek představující deset nejvýznamnějších a nejkrásnějších památek v Římě, které byste při návštěvě neměli vynechat.",
         keywords: ["Řím", "památky", "cestování", "Itálie", "Koloseum", "Vatikán", "Fontána di Trevi", "Forum Romanum", "turistika"]
+    },
+    {
+        title: "Skyscanner - vyhledávání letenek",
+        url: "https://www.skyscanner.cz",
+        description: "Srovnávač a vyhledávač levných letenek, hotelů a autopůjčoven.",
+        keywords: ["skyscanner", "letenky", "hotely", "cestování", "dovolená", "levné letenky"]
     },
 
     // Počasí a praktické
@@ -345,13 +381,47 @@ const searchDatabase = [
         title: "WebMD - zdravotní informace",
         url: "https://www.webmd.com",
         description: "Spolehlivé zdravotní informace, symptomy nemocí a zdravotní rady od lékařů.",
-        keywords: ["webmd", "zdraví", "nemoci", "symptomy", "lékaři", "medicína"]
+        keywords: ["webmd", "zdraví", "nemoci", "symptomy", "lékaři", "medicína", "lifestyle"]
     },
     {
-        title: "Pinterest - inspirace a nápady",
-        url: "https://www.pinterest.com",
-        description: "Sociální síť plná inspirace pro vaření, bydlení, módu, DIY projekty a životní styl.",
-        keywords: ["pinterest", "inspirace", "nápady", "diy", "vaření", "bydlení"]
+        title: "FITHALL.cz - fitness a zdraví",
+        url: "https://www.fithall.cz",
+        description: "Český portál o fitness, zdravém životním stylu, cvičení a výživě.",
+        keywords: ["fithall", "fitness", "zdraví", "cvičení", "výživa", "lifestyle"]
+    },
+
+    // Finance a bankovnictví
+    {
+        title: "Česká spořitelna",
+        url: "https://www.csas.cz",
+        description: "Oficiální stránky České spořitelny, největší banky v České republice.",
+        keywords: ["česká spořitelna", "banka", "finance", "účet", "hypotéka", "půjčka"]
+    },
+    {
+        title: "Komerční banka",
+        url: "https://www.kb.cz",
+        description: "Oficiální stránky Komerční banky, jedné z největších bank v ČR.",
+        keywords: ["komerční banka", "kb", "banka", "finance", "účet"]
+    },
+    {
+        title: "Kurzy.cz - finance a ekonomika",
+        url: "https://www.kurzy.cz",
+        description: "Aktuální kurzy měn, akcie, komodity, fondy a zprávy z ekonomiky a financí.",
+        keywords: ["kurzy", "finance", "ekonomika", "měny", "akcie", "investice"]
+    },
+
+    // Sport
+    {
+        title: "Sport.cz - sportovní zprávy",
+        url: "https://www.sport.cz",
+        description: "Aktuální sportovní zprávy z fotbalu, hokeje, tenisu a dalších sportů.",
+        keywords: ["sport", "sport.cz", "fotbal", "hokej", "tenis", "zprávy", "výsledky"]
+    },
+    {
+        title: "Livesport.cz - live výsledky",
+        url: "https://www.livesport.cz",
+        description: "Rychlé live výsledky, statistiky a komentáře z více než 30 sportů.",
+        keywords: ["livesport", "live výsledky", "sport", "fotbal", "hokej", "statistiky"]
     }
 ];
 
