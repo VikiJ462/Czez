@@ -210,9 +210,9 @@ const searchDatabase = [
         keywords: ["prehraj.to", "filmy", "seriály", "online", "stream", "videa", "české filmy"]
     },
     {
-        title: "Kukaj.fi - filmy a seriály online",
+        title: "Kukaj.to - filmy a seriály online",
         url: "https://kukaj.fi",
-        description: "Kukaj.fi nabízí širokou škálu filmů a seriálů ke sledování online zdarma.",
+        description: "Kukaj.to nabízí širokou škálu filmů a seriálů ke sledování online zdarma.",
         keywords: ["kukaj.fi", "filmy", "seriály", "online", "stream", "zdarma"]
     },
 
@@ -240,6 +240,12 @@ const searchDatabase = [
         url: "https://zoom.us",
         description: "Platforma pro videokonference, online schůzky a vzdálené prezentace pro firmy i školy.",
         keywords: ["zoom", "videokonference", "schůzky", "online", "prezentace", "vzdálená práce"]
+    },
+        {
+        title: "Teams - videokonference",
+        url: "https://www.microsoft.com/cs-cz/microsoft-teams/log-in",
+        description: "Platforma pro videokonference, online schůzky a vzdálené prezentace pro firmy i školy.",
+        keywords: ["teams", "videokonference", "schůzky", "online", "prezentace", "vzdálená práce", "microsoft teams"]
     },
 
     // Vzdělání
