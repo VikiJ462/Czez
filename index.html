@@ -4,223 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>czez</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 20px;
-        }
-
-        .search-container {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            width: 100%;
-            max-width: 800px;
-            margin: 0 auto 30px;
-            text-align: center;
-        }
-
-        .logo {
-            font-size: 3rem;
-            font-weight: bold;
-            color: white;
-            margin-bottom: 30px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-        }
-
-        .search-form {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-
-        .search-input {
-            flex: 1;
-            padding: 15px 20px;
-            border: none;
-            border-radius: 50px;
-            font-size: 16px;
-            background: rgba(255, 255, 255, 0.9);
-            color: #333;
-            outline: none;
-            transition: all 0.3s ease;
-        }
-
-        .search-input:focus {
-            background: white;
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
-            transform: translateY(-2px);
-        }
-
-        .search-button, .translator-button {
-            padding: 15px 30px;
-            border: none;
-            border-radius: 50px;
-            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
-            color: white;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .search-button:hover, .translator-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-            background: linear-gradient(45deg, #ff5252, #d63031);
-        }
-
-        .translator-button {
-            background: linear-gradient(45deg, #28a745, #218838); /* Zelenější barva pro překladač */
-            margin-top: 15px; /* Mezera mezi vyhledáváním a překladačem */
-        }
-
-        .translator-button:hover {
-            background: linear-gradient(45deg, #218838, #1e7e34);
-        }
-
-        .loading {
-            display: none;
-            color: white;
-            margin-top: 10px;
-        }
-
-        .loading.show {
-            display: block;
-        }
-
-        .spinner {
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            border: 3px solid rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-            border-top-color: white;
-            animation: spin 1s ease-in-out infinite;
-            margin-right: 10px;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
-        /* Výsledky vyhledávání */
-        .results-container {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 30px;
-            margin-top: 20px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            display: none;
-            text-align: left;
-        }
-
-        .results-container.show {
-            display: block;
-            animation: slideIn 0.5s ease-out;
-        }
-
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .results-header {
-            color: #333;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #eee;
-        }
-
-        .search-result {
-            background: white;
-            border-radius: 10px;
-            padding: 20px;
-            margin-bottom: 15px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            transition: transform 0.2s ease;
-        }
-
-        .search-result:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-        }
-
-        .result-title {
-            font-size: 18px;
-            font-weight: bold;
-            color: #2c3e50;
-            margin-bottom: 8px;
-        }
-
-        .result-url {
-            color: #27ae60;
-            font-size: 14px;
-            margin-bottom: 10px;
-            text-decoration: none;
-        }
-
-        .result-description {
-            color: #555;
-            line-height: 1.5;
-            font-size: 14px;
-        }
-
-        .no-results {
-            text-align: center;
-            color: #666;
-            font-style: italic;
-            padding: 40px;
-        }
-
-        .stats {
-            color: #666;
-            font-size: 14px;
-            margin-bottom: 15px;
-        }
-
-        /* Responzivní design */
-        @media (max-width: 768px) {
-            .search-form {
-                flex-direction: column;
-            }
-            
-            .search-button, .translator-button {
-                margin-top: 10px;
-            }
-            
-            .logo {
-                font-size: 2rem;
-            }
-            
-            .search-container {
-                padding: 30px 20px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="search-container">
@@ -259,10 +43,17 @@
             </div>
     </div>
 
+    <div class="draggable-container" id="newsContainer" draggable="true">
+        <div class="news-header">
+            <h3>Aktuální Novinky <span class="refresh-news" id="refreshNews">🔄</span></h3>
+        </div>
+        <div class="news-content" id="newsContent">
+            <p>Načítám novinky...</p>
+        </div>
+    </div>
+
     <script src="search-database.js"></script>
     <script>
-        // Databáze se načítá z externího souboru search-database.js
-
         document.addEventListener('DOMContentLoaded', function() {
             const searchForm = document.getElementById('searchForm');
             const searchInput = document.getElementById('searchInput');
@@ -270,7 +61,41 @@
             const resultsContainer = document.getElementById('resultsContainer');
             const resultsContent = document.getElementById('resultsContent');
             const searchStats = document.getElementById('searchStats');
-            const translatorButton = document.getElementById('translatorButton'); // Nové tlačítko
+            const translatorButton = document.getElementById('translatorButton');
+            const newsContainer = document.getElementById('newsContainer');
+            const newsContent = document.getElementById('newsContent');
+            const refreshNewsButton = document.getElementById('refreshNews');
+
+            // --- Přidáno pro Lingva API překlad ---
+            const LINGVA_API_BASE_URL = 'https://lingva.ml/api/v1/';
+
+            async function translateText(text, targetLang = 'cs') {
+                if (!text.trim()) return text; // Nezpracovávat prázdný text
+                
+                // Přidán malý timeout pro snížení rizika rate limitu, ale není to spolehlivé
+                await new Promise(resolve => setTimeout(resolve, 200)); 
+
+                const apiUrl = `${LINGVA_API_BASE_URL}auto/${targetLang}/${encodeURIComponent(text)}`;
+                try {
+                    const response = await fetch(apiUrl);
+                    if (!response.ok) {
+                        const errorDetail = await response.text().catch(() => 'Neznámý detail chyby');
+                        console.error(`Chyba při volání Lingva API (${response.status} ${response.statusText}) pro text "${text.substring(0, 50)}...":`, errorDetail);
+                        return `[Chyba překladu] ${text}`; // Vrátit původní text s chybovou zprávou
+                    }
+                    const data = await response.json();
+                    if (data && typeof data.translation === 'string') {
+                        return data.translation;
+                    } else {
+                        console.warn('Lingva API vrátilo neočekávanou strukturu dat pro překlad:', data);
+                        return `[Chyba překladu] ${text}`;
+                    }
+                } catch (error) {
+                    console.error('Došlo k chybě při komunikaci s Lingva API:', error);
+                    return `[Chyba sítě/API] ${text}`;
+                }
+            }
+            // --- Konec přidání pro Lingva API překlad ---
 
             // Funkce pro vyhledávání
             function performSearch(query) {
@@ -387,7 +212,8 @@
 
             // Obsluha kliknutí na tlačítko "Překladač"
             translatorButton.addEventListener('click', function() {
-                window.location.href = 'https://vikij462.github.io/Mega_Prekladac/';
+                // Přesměrování na vaši stránku překladače
+                window.location.href = 'https://vikij462.github.io/Mega_Prekladac/'; 
             });
 
             // Automatické zaměření na vstupní pole
@@ -425,6 +251,141 @@
                     resultsContainer.classList.remove('show');
                 }
             });
+
+            // --- Funkce pro aktuální novinky s překladem ---
+            const fetchNews = async () => {
+                newsContent.innerHTML = '<p>Načítám a překládám novinky...</p>';
+                const rssFeedUrl = 'http://feeds.bbci.co.uk/news/world/rss.xml'; // Stávající funkční RSS feed
+                const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(rssFeedUrl)}`;
+
+                try {
+                    const response = await fetch(proxyUrl);
+                    if (!response.ok) {
+                        throw new Error(`HTTP chyba z proxy! Status: ${response.status}`);
+                    }
+                    const data = await response.json();
+                    
+                    if (!data || !data.contents) {
+                        throw new Error('Odpověď z proxy neobsahuje obsah pro RSS.');
+                    }
+
+                    const parser = new DOMParser();
+                    const xmlDoc = parser.parseFromString(data.contents, "text/xml");
+                    
+                    if (xmlDoc.getElementsByTagName("parsererror").length > 0) {
+                        console.error("Chyba při parsování XML RSS feedu:", xmlDoc.getElementsByTagName("parsererror")[0].textContent);
+                        throw new Error('Chyba při parsování RSS feedu.');
+                    }
+
+                    const items = xmlDoc.querySelectorAll('item');
+                    let newsHtml = '';
+                    let count = 0;
+
+                    if (items.length === 0) {
+                        newsHtml = '<p>Nenalezeny žádné novinky. RSS feed je prázdný nebo obsahuje neplatná data.</p>';
+                        console.warn("RSS feed neobsahuje žádné 'item' elementy.");
+                    } else {
+                        // Vytvoříme pole promisy pro překlad všech titulků a popisků
+                        const translationPromises = [];
+                        const newsItemsData = [];
+
+                        for (let i = 0; i < items.length && count < 5; i++) { // Zobrazit pouze prvních 5 novinek
+                            const titleElement = items[i].querySelector('title');
+                            const linkElement = items[i].querySelector('link');
+                            const descriptionElement = items[i].querySelector('description');
+
+                            const originalTitle = titleElement ? titleElement.textContent : 'No Title';
+                            const link = linkElement ? linkElement.textContent : '#';
+                            const originalDescription = descriptionElement ? descriptionElement.textContent : 'No Description';
+
+                            // Jednoduchá sanitace popisu, odstranění HTML tagů
+                            const cleanOriginalDescription = originalDescription.replace(/<[^>]*>?/gm, '');
+
+                            // Přidáme promisy pro překlad
+                            translationPromises.push(translateText(originalTitle));
+                            translationPromises.push(translateText(cleanOriginalDescription));
+                            
+                            newsItemsData.push({
+                                link: link,
+                                originalTitle: originalTitle,
+                                originalDescription: cleanOriginalDescription
+                            });
+                            count++;
+                        }
+
+                        // Počkáme, až se všechny překlady dokončí
+                        const translatedTexts = await Promise.all(translationPromises);
+                        let translatedIndex = 0;
+
+                        newsItemsData.forEach(item => {
+                            const translatedTitle = translatedTexts[translatedIndex++];
+                            const translatedDescription = translatedTexts[translatedIndex++];
+                            
+                            newsHtml += `
+                                <div class="news-item">
+                                    <a href="${item.link}" target="_blank"><h4>${translatedTitle}</h4></a>
+                                    <p>${translatedDescription.substring(0, 150)}...</p>
+                                </div>
+                            `;
+                        });
+                    }
+                    newsContent.innerHTML = newsHtml;
+                } catch (error) {
+                    console.error("Chyba při načítání, parsování nebo překladu novinek:", error);
+                    newsContent.innerHTML = `<p>Nepodařilo se načíst novinky. Zkuste to prosím později. (<span style="color: red;">Chyba: ${error.message}</span>)</p>`;
+                }
+            };
+
+            // Načtení novinek při načtení stránky
+            fetchNews();
+
+            // Obnovení novinek při kliknutí na tlačítko
+            refreshNewsButton.addEventListener('click', fetchNews);
+
+            // --- Funkce pro Drag and Drop ---
+            let isDragging = false;
+            let currentX;
+            let currentY;
+            let initialX;
+            let initialY;
+            let xOffset = 0;
+            let yOffset = 0;
+
+            newsContainer.addEventListener('mousedown', dragStart);
+            newsContainer.addEventListener('mouseup', dragEnd);
+            newsContainer.addEventListener('mousemove', drag);
+
+            function dragStart(e) {
+                // Zajišťujeme, že se drag-and-drop spustí pouze, když uživatel klikne na samotný kontejner novinek nebo jeho hlavičku,
+                // nikoli na odkazy nebo tlačítko pro obnovení uvnitř.
+                if (e.target === newsContainer || e.target.closest('.news-header')) {
+                    initialX = e.clientX - xOffset;
+                    initialY = e.clientY - yOffset;
+
+                    isDragging = true;
+                }
+            }
+
+            function dragEnd(e) {
+                isDragging = false;
+            }
+
+            function drag(e) {
+                if (isDragging) {
+                    e.preventDefault();
+                    currentX = e.clientX - initialX;
+                    currentY = e.clientY - initialY;
+
+                    xOffset = currentX;
+                    yOffset = currentY;
+
+                    setTranslate(currentX, currentY, newsContainer);
+                }
+            }
+
+            function setTranslate(xPos, yPos, el) {
+                el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
+            }
         });
     </script>
 </body>
