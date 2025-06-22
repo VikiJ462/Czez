@@ -203,6 +203,18 @@ const searchDatabase = [
         description: "Stáhni si Minecraft Launcher a užij si hraní.",
         keywords: ["Minecraft", "Minecraft Launcher", "stáhnout Minecraft", "Minecraft stáhnutí"]
     },
+    {
+        title: "Prehraj.to - online filmy a seriály",
+        url: "https://www.prehraj.to",
+        description: "Sledujte filmy, seriály a videa online. Velký archiv českých i zahraničních titulů.",
+        keywords: ["prehraj.to", "filmy", "seriály", "online", "stream", "videa", "české filmy"]
+    },
+    {
+        title: "Kukaj.fi - filmy a seriály online",
+        url: "https://kukaj.fi",
+        description: "Kukaj.fi nabízí širokou škálu filmů a seriálů ke sledování online zdarma.",
+        keywords: ["kukaj.fi", "filmy", "seriály", "online", "stream", "zdarma"]
+    },
 
     // Práce a produktivita
     {
@@ -300,6 +312,12 @@ const searchDatabase = [
         url: "https://www.mapy.com",
         description: "České mapy a navigace",
         keywords: ["mapy", "mapy.cz", "mapy.com", "navigace", "trasy", "cestování"]
+    },
+    {
+        title: "10 památek v Římě, které si nesmíte nechat ujít - RadyNaCestu.cz",
+        url: "https://www.radynacestu.cz/magazin/10-pamatek-v-rime-ktere-si-nesmite-nechat-ujit",
+        description: "Článek představující deset nejvýznamnějších a nejkrásnějších památek v Římě, které byste při návštěvě neměli vynechat.",
+        keywords: ["Řím", "památky", "cestování", "Itálie", "Koloseum", "Vatikán", "Fontána di Trevi", "Forum Romanum", "turistika"]
     },
 
     // Počasí a praktické
