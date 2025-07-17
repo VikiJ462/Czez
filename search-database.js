@@ -395,7 +395,31 @@ const searchDatabase = [
         title: "Firefox - bezpečný open-source prohlížeč",
         url: "https://www.firefox.com/cs/?redirect_source=mozilla-org",
         description: "Bezpečný prohížeč od Mozilly.",
-        keywords: ["Mozzila", "Firefox", "Prohlížeč", "Web"]
+        keywords: ["mozzila", "firefox", "prohlížeč", "web"]
+    },
+    {
+        title: "Chrome - bezpečný prohlížeč od Googlu",
+        url: "https://www.google.com/intl/cs_CZ/chrome",
+        description: "Bezpečný prohížeč od Mozilly.",
+        keywords: ["google", "chrome", "prohlížeč", "web"]
+    },
+    {
+        title: "Vivaldi - přizpůsobitelný prohlížeč založený na Chromiu",
+        url: "https://vivaldi.com/download",
+        description: "Přizpůsobitelný prohlížeč založený na Chromiu.",
+        keywords: ["vivaldi", "prohlížeč", "web"]
+    },
+    {
+        title: "Brave - bezpečný prohlížeč založený na Chromiu",
+        url: "https://brave.com/cs/download",
+        description: "Přizpůsobitelný prohlížeč založený na Chromiu.",
+        keywords: ["brave", "prohlížeč", "web"]
+    },
+    {
+        title: "Mega Browser - jednoduchý prohlížeč naprogramovaný v Pythonu",
+        url: "https://github.com/VikiJ462/Mega-Browser/releases",
+        description: "Jednoduchý prohlížeč naprogramovaný v Pythonu.",
+        keywords: ["mega", "browser", "mega Browser", "mega prohlížeč", "prohlížeč", "web"]
     },
 
     // Finance a bankovnictví
