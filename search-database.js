@@ -395,12 +395,12 @@ const searchDatabase = [
         title: "Firefox - bezpečný open-source prohlížeč",
         url: "https://www.firefox.com/cs/?redirect_source=mozilla-org",
         description: "Bezpečný prohížeč od Mozilly.",
-        keywords: ["mozzila", "firefox", "prohlížeč", "web"]
+        keywords: ["mozilla", "firefox", "prohlížeč", "web"]
     },
     {
         title: "Chrome - bezpečný prohlížeč od Googlu",
         url: "https://www.google.com/intl/cs_CZ/chrome",
-        description: "Bezpečný prohížeč od Mozilly.",
+        description: "Bezpečný prohížeč od Googlu.",
         keywords: ["google", "chrome", "prohlížeč", "web"]
     },
     {
