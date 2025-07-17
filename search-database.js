@@ -389,6 +389,14 @@ const searchDatabase = [
         description: "Český portál o fitness, zdravém životním stylu, cvičení a výživě.",
         keywords: ["fithall", "fitness", "zdraví", "cvičení", "výživa", "lifestyle"]
     },
+    
+        // Prohlížeče
+    {
+        title: "Firefox - bezpečný open-source prohlížeč",
+        url: "https://www.firefox.com/cs/?redirect_source=mozilla-org",
+        description: "Bezpečný prohížeč od Mozilly.",
+        keywords: ["Mozzila", "Firefox", "Prohlížeč", "Web"]
+    },
 
     // Finance a bankovnictví
     {
