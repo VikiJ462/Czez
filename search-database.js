@@ -196,7 +196,7 @@ const searchDatabase = [
         keywords: ["ide", "IDE", "EzNotepad", "notepad", "blok", "poznámky", "textový editor", "editor"]
     },
     {
-        title: Emacs stáhnutí - stáhněte si populární textový editor",
+        title: "Emacs stáhnutí - stáhněte si populární textový editor",
         url: "https://www.gnu.org/software/emacs/download.html",
         description: "Emacs je populární textový editor.",
         keywords: ["ide", "IDE", "emacs", "gnu emacs", "gnuemacs", "poznámky", "textový editor", "editor"]
@@ -217,10 +217,10 @@ const searchDatabase = [
         title: "JetBrains IDE stáhnutí - stáhněte si populární IDE",
         url: "https://www.jetbrains.com",
         description: "JetBrains dělají pokročilé populární IDE.",
-        keywords: ["ide", "IDE", "JetBrains", "jetbrains", "jetbrains ide", "clion", "pycharm", "intellij", "intellij idea", "phpstorm", "goland", "rider", "rustrover", "webstorm", rubymine", "datagrip", "resharper", "fleet", "textový editor", "editor"]
+        keywords: ["ide", "IDE", "JetBrains", "jetbrains", "jetbrains ide", "clion", "pycharm", "intellij", "intellij idea", "phpstorm", "goland", "rider", "rustrover", "webstorm", "rubymine", "datagrip", "resharper", "fleet", "textový editor", "editor"]
     },
     {
-        title: Bussin GriddyCode stáhnutí - stáhněte si griddy IDE",
+        title: "Bussin GriddyCode stáhnutí - stáhněte si griddy IDE",
         url: "https://github.com/face-hh/griddycode/releases",
         description: "Bussin GriddyCode je griddy IDE od FaceDev.",
         keywords: ["ide", "IDE", "griddycode", "bussin griddycode", "textový editor", "editor"]
