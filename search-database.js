@@ -190,7 +190,7 @@ const searchDatabase = [
         keywords: ["ide", "IDE", "VS", "VS Community", "Visual Studio", "Visual Studio Community", "textový editor", "editor"]
     },
     {
-        title: EzNotepad stáhnutí - stáhněte si jednoduchý textový editor",
+        title: "EzNotepad stáhnutí - stáhněte si jednoduchý textový editor",
         url: "https://github.com/VikiJ462/EzNotepad/releases",
         description: "EzNotepad je jednoduchý textový editor.",
         keywords: ["ide", "IDE", "EzNotepad", "notepad", "blok", "poznámky", "textový editor", "editor"]
